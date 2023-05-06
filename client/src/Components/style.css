@@ -1,0 +1,15 @@
+.card-container{
+  box-sizing: border-box;
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+.card {
+ 
+  margin-bottom: 5px;
+
+  
+  margin: 5px;
+
+}
