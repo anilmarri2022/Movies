@@ -6,8 +6,8 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Image from "react-bootstrap/Image";
 import Navbar from "react-bootstrap/Navbar";
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 const Main = () => {
   const [search, setSearch] = useState("");
@@ -22,43 +22,27 @@ const Main = () => {
 
   return (
     <div>
-      {/* <nav className="navbar navbar-expand-lg navbar-dark   header">
-        <Link to="/">
-          {" "}
-          <img className="header__icon" src={Netflixlogo} alt="img" />
-        </Link>
+      <Navbar className="navbar expand-lg navbar-dark   header" expand="lg">
+        <Container>
+          <Navbar.Brand href="/">
+            <Image className="header__icon" src={Netflixlogo} alt="img" />
+          </Navbar.Brand>
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav headerLeft ">
-            <li className="nav-item active">
-              <Link to="/movies/popular" style={{ textDecoration: "none" }}>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="/movies/popular">
                 <span>Popular</span>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/movies/top_rated" style={{ textDecoration: "none" }}>
+              </Nav.Link>
+              <Nav.Link href="/movies/top_rated">
                 <span>Top Rated</span>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/movies/upcoming" style={{ textDecoration: "none" }}>
+              </Nav.Link>
+              <Nav.Link href="/movies/upcoming">
                 <span>Upcoming</span>
-              </Link>
-            </li>
-          </ul>
-        </div>
-
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
         <form class="d-flex" role="search" onSubmit={searchHandler}>
           <input
             class="form-control me-2"
@@ -72,53 +56,7 @@ const Main = () => {
             Search
           </button>
         </form>
-      </nav> */}
-      
-            {/* <form class="d-flex" role="search" onSubmit={searchHandler}>
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <button class="btn btn-outline-success" type="submit">
-            Search
-          </button>
-        </form> */}
-  <Navbar className="navbar expand-lg navbar-dark   header" expand="lg">
-      <Container>
-      <Navbar.Brand href="/">
-      <Image className="header__icon" src={Netflixlogo} alt="img" />
-      </Navbar.Brand>
-      
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/movies/popular"><span>Popular</span></Nav.Link>
-            <Nav.Link href="/movies/top_rated"><span>Top Rated</span></Nav.Link>
-            <Nav.Link href="/movies/upcoming"><span>Upcoming</span></Nav.Link>
-            
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-        <form class="d-flex" role="search" onSubmit={searchHandler}>
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <button class="btn btn-outline-success" type="submit">
-            Search
-          </button>
-        </form>
-    </Navbar>
-    
-      
+      </Navbar>
 
       <div className="row">
         {data.map((movie) => (
