@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Main.css";
+import {Link} from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css";
 import Netflixlogo from "../../src/images/Netflixlogo.jpg";
 import Container from "react-bootstrap/Container";
@@ -31,15 +32,15 @@ const Main = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="/movies/popular">
+              <Link to="/movies/popular" style={{textDecoration:"none"}}>
                 <span>Popular</span>
-              </Nav.Link>
-              <Nav.Link href="/movies/top_rated">
+              </Link>
+              <Link to="/movies/top_rated" style={{textDecoration:"none"}}>
                 <span>Top Rated</span>
-              </Nav.Link>
-              <Nav.Link href="/movies/upcoming">
+              </Link>
+              <Link to="/movies/upcoming" style={{textDecoration:"none"}}>
                 <span>Upcoming</span>
-              </Nav.Link>
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
