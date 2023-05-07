@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import Home from '../Pages/Home.jsx'
+import "./Main.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { Link } from "react-router-dom";
+import Netflixlogo from "../../src/images/Netflixlogo.jpg";
 const Main = () => {
   const [search, setSearch] = useState("");
   const [data, setData] = useState([]);
@@ -13,28 +14,14 @@ const Main = () => {
       .then((value) => setData(value.Search));
   };
 
-  const download = (url) => {
-    fetch(url)
-      .then((response) => {
-        response.arrayBuffer().then(function (buffer) {
-          const url = window.URL.createObjectURL(new Blob([buffer]));
-          const link = document.createElement("a");
-          link.href = url;
-          link.setAttribute("download", "image.png");
-          document.body.appendChild(link);
-          link.click();
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand" href="#">
-          Movies
-        </a>
+      <nav className="navbar navbar-expand-lg navbar-dark   header">
+        <Link to="/">
+        {" "}
+          <img className="header__icon" src={Netflixlogo} alt="img"/>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -47,21 +34,21 @@ const Main = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
+          <ul className="navbar-nav headerLeft ">
             <li className="nav-item active">
-              <a className="nav-link" href={Home}>
-                Home
-              </a>
+              <Link to="/movies/popular" style={{ textDecoration: "none" }}>
+                <span>Popular</span>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Features
-              </a>
+              <Link to="/movies/top_rated" style={{ textDecoration: "none" }}>
+                <span>Top Rated</span>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Pricing
-              </a>
+              <Link to="/movies/upcoming" style={{ textDecoration: "none" }}>
+                <span>Upcoming</span>
+              </Link>
             </li>
           </ul>
         </div>
@@ -82,16 +69,12 @@ const Main = () => {
       <div className="row">
         {data.map((movie) => (
           <div className="col-md-3">
-            <div class="card" style={{ width: "18rem" }}>
+            <div class="cards" style={{ width: "18rem" }}>
               <img src={movie.Poster} class="card-img-top" alt={movie.Title} />
-              <div class="card-body">
-                <h5 class="card-title">{movie.Title}</h5>
-                <a
-                  className="btn btn-primary"
-                  onClick={() => download(movie.Poster)}
-                >
-                  Download Poster
-                </a>
+              <div class="cards__overlay">
+                <h5 class="card__title">{movie.Title}</h5>\
+                <div className="card__rating">{movie.imdbID}</div>
+                <div className="card__runtime">{movie.Year}</div>
               </div>
             </div>
           </div>

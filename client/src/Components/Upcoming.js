@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Main from "../Components/Main";
-import './Home.css'
-const Home = () => {
+const Upcoming = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("https://www.omdbapi.com/?s=king&apikey=62e54a34")
+    fetch("https://www.omdbapi.com/?s=narnia&apikey=62e54a34")
       .then((response) => response.json())
       .then((json) => setData(json.Search));
   });
@@ -33,4 +32,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Upcoming;
