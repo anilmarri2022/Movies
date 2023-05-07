@@ -81,16 +81,28 @@ github : used main branch
 
 pushed code by these commands
 git init
+
 git add README.md
+
 git commit -m "first commit"
+
 git branch -M main
+
 git remote add origin https://github.com/anilmarri2022/jn.git
+
 git push -u origin main
 
 git add . 
+
 git commit -m "second commit" 
+
 git push origin "main"
 
 
+
+If I selected I will learn more technologies:
+
+Anil Kumar
+Thank You....
 
 
